@@ -1,0 +1,1 @@
+//  ini Ngatur state antara UI dan Service
