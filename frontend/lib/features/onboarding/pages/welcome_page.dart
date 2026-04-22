@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/benefit_item.dart';
+import '../../navigation/pages/main_nav_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -22,7 +23,14 @@ class WelcomePage extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const MainNavPage(isGuest: true),
+                      ),
+                    );
+                  },
                   child: const Text(
                     'Skip',
                     style: TextStyle(
@@ -136,10 +144,7 @@ class WelcomePage extends StatelessWidget {
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     foregroundColor: primaryColor,
-                    side: const BorderSide(
-                      color: primaryColor,
-                      width: 1.6,
-                    ),
+                    side: const BorderSide(color: primaryColor, width: 1.6),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -169,10 +174,7 @@ class WelcomePage extends StatelessWidget {
                 children: const [
                   Text(
                     'Have an account? ',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: textGrey,
-                    ),
+                    style: TextStyle(fontSize: 15, color: textGrey),
                   ),
                   Text(
                     'Sign in here',
@@ -190,11 +192,7 @@ class WelcomePage extends StatelessWidget {
               const Text.rich(
                 TextSpan(
                   text: 'By signing up you accept our ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: textGrey,
-                    height: 1.5,
-                  ),
+                  style: TextStyle(fontSize: 14, color: textGrey, height: 1.5),
                   children: [
                     TextSpan(
                       text: 'Terms & Conditions',
