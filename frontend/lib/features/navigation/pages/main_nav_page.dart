@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../home/pages/home_page.dart';
 import '../../mybook/pages/mybook_page.dart';
 import '../../whistlist/pages/wishlist_page.dart';
+import '../../profile/pages/profile_page.dart';
 
 class MainNavPage extends StatefulWidget {
   final bool isGuest;
@@ -47,7 +48,7 @@ class _MainNavPageState extends State<MainNavPage> {
       HomePage(isGuest: widget.isGuest, userEmail: widget.userEmail),
       const MyBookPage(),
       const WishlistPage(),
-      const Center(child: Text('Profile Page')),
+      ProfilePage(isGuest: widget.isGuest),
     ];
 
     return Scaffold(
