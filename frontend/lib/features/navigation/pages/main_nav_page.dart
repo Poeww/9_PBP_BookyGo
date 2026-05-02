@@ -46,7 +46,11 @@ class _MainNavPageState extends State<MainNavPage> {
 
     final List<Widget> pages = [
       HomePage(isGuest: widget.isGuest, userEmail: widget.userEmail),
-      const MyBookPage(),
+      MyBookPage(
+        onBookNowTap: () {
+          _onItemTapped(0);
+        },
+      ),
       const WishlistPage(),
       ProfilePage(isGuest: widget.isGuest),
     ];
