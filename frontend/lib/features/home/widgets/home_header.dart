@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 
 class HomeHeader extends StatelessWidget {
   final String userName;
@@ -11,32 +12,32 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(26, 28, 26, 0),
+      padding: const EdgeInsets.fromLTRB(24, 18, 24, 0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 18),
+              padding: const EdgeInsets.only(top: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Hello, $userName 👋',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: Colors.white.withValues(alpha: 0.92),
+                      color: AppColors.white.withValues(alpha: 0.92),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 8),
                   const Text(
                     'Where do you want\nto stay today?',
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 24,
                       fontWeight: FontWeight.w800,
-                      color: Colors.white,
-                      height: 1.2,
+                      color: AppColors.white,
+                      height: 1.15,
                     ),
                   ),
                 ],
@@ -44,21 +45,21 @@ class HomeHeader extends StatelessWidget {
             ),
           ),
           Container(
-            width: 64,
-            height: 64,
-            margin: const EdgeInsets.only(top: 10),
+            width: 50,
+            height: 50,
+            margin: const EdgeInsets.only(top: 14),
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(20),
+              color: AppColors.white.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: Colors.white.withValues(alpha: 0.18),
-                width: 1.2,
+                color: AppColors.white.withValues(alpha: 0.22),
+                width: 1,
               ),
             ),
             child: const Icon(
               Icons.notifications_none_rounded,
-              color: Colors.white,
-              size: 32,
+              color: AppColors.white,
+              size: 28,
             ),
           ),
         ],
