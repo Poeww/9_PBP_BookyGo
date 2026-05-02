@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/mybook_action_button.dart';
 import '../widgets/mybook_header.dart';
 import '../widgets/mybook_recommendation_section.dart';
+import '../../history/pages/history_page.dart';
 
 class MyBookPage extends StatelessWidget {
   const MyBookPage({super.key});
@@ -15,7 +16,16 @@ class MyBookPage extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: Column(
         children: [
-          const MyBookHeader(),
+          MyBookHeader(
+            onHistoryTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const HistoryPage(),
+                ),
+              );
+            },
+          ),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.only(bottom: 120),

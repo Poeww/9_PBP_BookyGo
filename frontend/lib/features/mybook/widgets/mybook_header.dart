@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyBookHeader extends StatelessWidget {
-  const MyBookHeader({super.key});
+  final VoidCallback onHistoryTap;
+
+  const MyBookHeader({
+    super.key,
+    required this.onHistoryTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,8 @@ class MyBookHeader extends StatelessWidget {
         bottom: false,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
+          children: [
+            const Text(
               'Your Book',
               style: TextStyle(
                 color: Colors.white,
@@ -24,10 +29,13 @@ class MyBookHeader extends StatelessWidget {
                 fontWeight: FontWeight.w800,
               ),
             ),
-            Icon(
-              Icons.pending_actions_rounded,
-              color: Colors.white,
-              size: 34,
+            IconButton(
+              onPressed: onHistoryTap,
+              icon: const Icon(
+                Icons.pending_actions_rounded,
+                color: Colors.white,
+                size: 34,
+              ),
             ),
           ],
         ),
