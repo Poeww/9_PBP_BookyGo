@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 
 class SearchSection extends StatelessWidget {
   const SearchSection({super.key});
@@ -6,10 +7,10 @@ class SearchSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(22),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(22),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.08),
@@ -26,7 +27,7 @@ class SearchSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w800,
-              color: Color(0xFF344A99),
+              color: AppColors.darkBlue,
             ),
           ),
           const SizedBox(height: 18),
@@ -37,14 +38,14 @@ class SearchSection extends StatelessWidget {
               vertical: 14,
             ),
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFE3E8FF)),
+              border: Border.all(color:  AppColors.blueSoft),
               borderRadius: BorderRadius.circular(18),
             ),
             child: const Row(
               children: [
                 Icon(
                   Icons.search_rounded,
-                  color: Color(0xFF9AA3C7),
+                  color: AppColors.textMuted,
                   size: 28,
                 ),
                 SizedBox(width: 12),
@@ -65,7 +66,7 @@ class SearchSection extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFF344A99),
+                          color: AppColors.darkBlue,
                         ),
                       ),
                     ],
@@ -123,10 +124,10 @@ class SearchSection extends StatelessWidget {
 
           SizedBox(
             width: double.infinity,
-            height: 58,
+            height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF5B74E8),
+                backgroundColor: AppColors.primaryEnd,
                 foregroundColor: Colors.white,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
@@ -165,7 +166,7 @@ class _InfoBox extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFFE3E8FF)),
+        border: Border.all(color: AppColors.blueSoft),
         borderRadius: BorderRadius.circular(18),
       ),
       child: Row(
@@ -174,12 +175,12 @@ class _InfoBox extends StatelessWidget {
             width: 42,
             height: 42,
             decoration: BoxDecoration(
-              color: const Color(0xFFF5F7FF),
+              color: AppColors.bgVeryLight,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Icon(
               icon,
-              color: const Color(0xFF8C96C6),
+              color: AppColors.mutedBlue,
               size: 24,
             ),
           ),
@@ -192,7 +193,7 @@ class _InfoBox extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF9AA3C7),
+                    color: AppColors.textMuted,
                   ),
                 ),
                 const SizedBox(height: 3),
@@ -201,7 +202,7 @@ class _InfoBox extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF344A99),
+                    color: AppColors.darkBlue,
                     height: 1.2,
                   ),
                 ),

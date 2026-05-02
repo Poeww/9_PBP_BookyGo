@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/home_header.dart';
 import '../widgets/search_section.dart';
+import '../../../core/theme/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   final bool isGuest;
@@ -33,7 +34,7 @@ class HomePage extends StatelessWidget {
         isGuest ? 'User' : extractNameFromEmail(userEmail);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FF),
+      backgroundColor: AppColors.bgVeryLight,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 const SizedBox(
-                  height: 640,
+                  height: 595,
                   width: double.infinity,
                 ),
 
@@ -50,14 +51,14 @@ class HomePage extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Container(
-                    height: 320,
+                    height: 215,
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xFF6F8EF6),
-                          Color(0xFF5B74E8),
+                          AppColors.primaryStart,
+                          AppColors.primaryEnd,
                         ],
                       ),
                     ),
@@ -77,13 +78,13 @@ class HomePage extends StatelessWidget {
                 const Positioned(
                   left: 20,
                   right: 20,
-                  top: 190,
+                  top: 165,
                   child: SearchSection(),
                 ),
               ],
             ),
 
-            const SizedBox(height: 8),
+            const SizedBox(height: 1),
 
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -94,7 +95,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
-                    color: Color(0xFF344A99),
+                    color: AppColors.darkBlue,
                   ),
                 ),
               ),
@@ -103,9 +104,9 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 16),
 
             SizedBox(
-              height: 46,
+              height: 42,
               child: ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 18),
                 scrollDirection: Axis.horizontal,
                 children: const [
                   _DestinationChip(
@@ -128,7 +129,7 @@ class HomePage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 20),
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(22),
                 boxShadow: [
                   BoxShadow(
@@ -169,7 +170,7 @@ class HomePage extends StatelessWidget {
                               '4.8',
                               style: TextStyle(
                                 fontWeight: FontWeight.w700,
-                                color: Color(0xFF344A99),
+                                color: AppColors.darkBlue,
                               ),
                             ),
                           ],
@@ -180,7 +181,7 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
-                            color: Color(0xFF344A99),
+                            color: AppColors.darkBlue,
                             height: 1.15,
                           ),
                         ),
@@ -189,7 +190,7 @@ class HomePage extends StatelessWidget {
                           'Yogyakarta • 2 nights •\nBreakfast included',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Color(0xFF9AA3C7),
+                            color: AppColors.textMuted,
                             height: 1.4,
                           ),
                         ),
@@ -207,7 +208,7 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
-                            color: Color(0xFF5B74E8),
+                            color: AppColors.primaryEnd,
                           ),
                         ),
                       ],
@@ -218,12 +219,12 @@ class HomePage extends StatelessWidget {
                     width: 46,
                     height: 46,
                     decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFFE3E8FF)),
+                      border: Border.all(color: AppColors.blueSoft),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: const Icon(
                       Icons.favorite_border_rounded,
-                      color: Color(0xFF5B74E8),
+                      color: AppColors.primaryEnd,
                     ),
                   ),
                 ],
@@ -267,16 +268,19 @@ class _DestinationChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+      height: 38,
+      padding: const EdgeInsets.symmetric(horizontal: 18),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: isSelected ? const Color(0xFF5B74E8) : Colors.white,
+        color: isSelected ? AppColors.primaryEnd : AppColors.white,
         borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: const Color(0xFFE3E8FF)),
+        border: Border.all(color: AppColors.blueSoft),
       ),
       child: Text(
         label,
+        textAlign: TextAlign.center,
         style: TextStyle(
-          color: isSelected ? Colors.white : const Color(0xFF344A99),
+          color: isSelected ? AppColors.white : AppColors.darkBlue,
           fontWeight: FontWeight.w700,
         ),
       ),
@@ -296,13 +300,13 @@ class _Badge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: const Color(0xFFEFF3FF),
+        color: AppColors.bgVeryLight,
         borderRadius: BorderRadius.circular(999),
       ),
       child: Text(
         text,
         style: const TextStyle(
-          color: Color(0xFF5B74E8),
+          color: AppColors.primaryEnd,
           fontSize: 12,
           fontWeight: FontWeight.w700,
         ),
