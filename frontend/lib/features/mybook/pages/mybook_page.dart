@@ -5,8 +5,12 @@ import '../widgets/mybook_recommendation_section.dart';
 import '../../history/pages/history_page.dart';
 
 class MyBookPage extends StatelessWidget {
-  const MyBookPage({super.key});
+  final VoidCallback onBookNowTap;
 
+  const MyBookPage({
+    super.key,
+    required this.onBookNowTap,
+  });
   @override
   Widget build(BuildContext context) {
     const backgroundColor = Color(0xFFF4F7FF);
@@ -58,9 +62,7 @@ class MyBookPage extends StatelessWidget {
 
                   MyBookActionButton(
                     text: 'Book now',
-                    onPressed: () {
-                      // nanti bisa diarahkan ke page booking / hotel list
-                    },
+                    onPressed: onBookNowTap,
                   ),
 
                   const SizedBox(height: 56),
