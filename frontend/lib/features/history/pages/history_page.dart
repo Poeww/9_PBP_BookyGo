@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatelessWidget {
-  const HistoryPage({super.key});
+  final List<Map<String, String>> histories;
+
+  const HistoryPage({
+    super.key,
+    required this.histories,
+  });
 
   static const primaryBlue = Color(0xFF3F7BEA);
   static const backgroundBlue = Color(0xFFE0EFFF);
   static const darkText = Color(0xFF162551);
-  static const bool hasHistory = false;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +20,19 @@ class HistoryPage extends StatelessWidget {
         children: [
           const _HistoryHeader(),
           Expanded(
-            child: hasHistory
-                ? const SingleChildScrollView(
-                    padding: EdgeInsets.fromLTRB(20, 24, 20, 24),
-                    child: _HistoryCard(),
-                  )
-                : const _EmptyHistoryView(),
-          ),
+  child: histories.isEmpty
+      ? const _EmptyHistoryView()
+      : ListView.separated(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          itemCount: histories.length,
+          separatorBuilder: (_, __) => const SizedBox(height: 16),
+          itemBuilder: (context, index) {
+            return _HistoryCard(
+              history: histories[index],
+            );
+          },
+        ),
+),
         ],
       ),
     );
@@ -78,7 +88,11 @@ class _HistoryHeader extends StatelessWidget {
 }
 
 class _HistoryCard extends StatelessWidget {
-  const _HistoryCard();
+  final Map<String, String> history;
+
+  const _HistoryCard({
+    required this.history,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -104,19 +118,19 @@ class _HistoryCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset(
-                  'assets/images/onboarding_bag.png',
+                  history['imagePath'] ?? 'assets/images/onboarding_bag.png',
                   width: 82,
                   height: 82,
                   fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(width: 12),
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Malioboro\nBoutique Stay',
+                      history['hotelName'] ?? '',
                       style: TextStyle(
                         color: HistoryPage.darkText,
                         fontSize: 15,
@@ -125,7 +139,7 @@ class _HistoryCard extends StatelessWidget {
                     ),
                     SizedBox(height: 6),
                     Text(
-                      'Yogyakarta, Indonesia',
+                      history['location'] ?? '',
                       style: TextStyle(
                         color: Color(0xFF7A86A1),
                         fontSize: 11,
@@ -133,7 +147,7 @@ class _HistoryCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'ID : XXXXX',
+                      'ID : ${history['id'] ?? ''}',
                       style: TextStyle(
                         color: Color(0xFF9AA4B8),
                         fontSize: 10,
@@ -155,7 +169,7 @@ class _HistoryCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -169,7 +183,7 @@ class _HistoryCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      '16 March – 18 March, 2026',
+                      history['dateRange'] ?? '',
                       style: TextStyle(
                         color: HistoryPage.darkText,
                         fontSize: 13,
@@ -178,7 +192,7 @@ class _HistoryCard extends StatelessWidget {
                     ),
                     SizedBox(height: 2),
                     Text(
-                      '2 Night',
+                      history['night'] ?? '',
                       style: TextStyle(
                         color: Color(0xFF7A86A1),
                         fontSize: 11,

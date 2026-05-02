@@ -21,7 +21,9 @@ class MyBookPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => const HistoryPage(),
+                  builder: (_) => const HistoryPage(
+                    histories: [], //inii nanti kalo mau nampilin contoh card nya masukin data dummy aja
+                  ),
                 ),
               );
             },
