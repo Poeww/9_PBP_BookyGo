@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 
 class HistoryPage extends StatelessWidget {
   final List<Map<String, String>> histories;
@@ -8,14 +9,10 @@ class HistoryPage extends StatelessWidget {
     required this.histories,
   });
 
-  static const primaryBlue = Color(0xFF3F7BEA);
-  static const backgroundBlue = Color(0xFFE0EFFF);
-  static const darkText = Color(0xFF162551);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundBlue,
+      backgroundColor: AppColors.bgVeryLight,
       body: Column(
         children: [
           const _HistoryHeader(),
@@ -45,7 +42,7 @@ class _HistoryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: HistoryPage.primaryBlue,
+      color: AppColors.primaryEnd,
       child: SafeArea(
         bottom: false,
         child: SizedBox(
@@ -57,14 +54,14 @@ class _HistoryHeader extends StatelessWidget {
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(
                   Icons.arrow_back,
-                  color: Colors.white,
+                  color: AppColors.white,
                   size: 24,
                 ),
               ),
               const Text(
                 'History',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
                 ),
@@ -74,7 +71,7 @@ class _HistoryHeader extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(
                   Icons.more_vert,
-                  color: Colors.white,
+                  color: AppColors.white,
                   size: 24,
                 ),
               ),
@@ -100,7 +97,7 @@ class _HistoryCard extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 205),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
@@ -132,7 +129,7 @@ class _HistoryCard extends StatelessWidget {
                     Text(
                       history['hotelName'] ?? '',
                       style: TextStyle(
-                        color: HistoryPage.darkText,
+                        color: AppColors.darkBlue,
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
                       ),
@@ -141,7 +138,7 @@ class _HistoryCard extends StatelessWidget {
                     Text(
                       history['location'] ?? '',
                       style: TextStyle(
-                        color: Color(0xFF7A86A1),
+                        color: AppColors.textMuted,
                         fontSize: 11,
                       ),
                     ),
@@ -149,7 +146,7 @@ class _HistoryCard extends StatelessWidget {
                     Text(
                       'ID : ${history['id'] ?? ''}',
                       style: TextStyle(
-                        color: Color(0xFF9AA4B8),
+                        color: AppColors.textMuted,
                         fontSize: 10,
                       ),
                     ),
@@ -160,7 +157,7 @@ class _HistoryCard extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(
                   Icons.favorite_border,
-                  color: HistoryPage.primaryBlue,
+                  color: AppColors.mutedBlue,
                 ),
               ),
             ],
@@ -176,7 +173,7 @@ class _HistoryCard extends StatelessWidget {
                     Text(
                       'DATES',
                       style: TextStyle(
-                        color: Color(0xFF9AA4B8),
+                        color: AppColors.textMuted,
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                       ),
@@ -185,7 +182,7 @@ class _HistoryCard extends StatelessWidget {
                     Text(
                       history['dateRange'] ?? '',
                       style: TextStyle(
-                        color: HistoryPage.darkText,
+                        color: AppColors.darkBlue,
                         fontSize: 13,
                         fontWeight: FontWeight.w800,
                       ),
@@ -194,7 +191,7 @@ class _HistoryCard extends StatelessWidget {
                     Text(
                       history['night'] ?? '',
                       style: TextStyle(
-                        color: Color(0xFF7A86A1),
+                        color: AppColors.textMuted,
                         fontSize: 11,
                       ),
                     ),
@@ -210,7 +207,7 @@ class _HistoryCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                   boxShadow: [
                     BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.18),
+                          color: Colors.black.withValues(alpha: 0.25),
                           blurRadius: 6,
                           offset: const Offset(0, 3),
                         ),
@@ -219,8 +216,8 @@ class _HistoryCard extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: HistoryPage.primaryBlue,
-                    foregroundColor: Colors.white,
+                    backgroundColor: AppColors.primaryEnd,
+                    foregroundColor: AppColors.white,
                     padding: EdgeInsets.zero,
                     elevation: 0,
                     shadowColor: Colors.transparent,
@@ -241,11 +238,11 @@ class _HistoryCard extends StatelessWidget {
                     width: 92,
                     height: 32,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.white,
                       borderRadius: BorderRadius.circular(14),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.18),
+                          color: Colors.black.withValues(alpha: 0.25),
                           blurRadius: 6,
                           offset: const Offset(0, 3),
                         ),
@@ -255,7 +252,7 @@ class _HistoryCard extends StatelessWidget {
                       onPressed: () {},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
-                        foregroundColor: HistoryPage.primaryBlue,
+                        foregroundColor: AppColors.primaryEnd,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
@@ -299,7 +296,7 @@ class _EmptyHistoryView extends StatelessWidget {
             const Text(
               'No Booked History Yet',
               style: TextStyle(
-                color: HistoryPage.darkText,
+                color: AppColors.darkBlue,
                 fontSize: 16,
                 fontWeight: FontWeight.w800,
               ),
@@ -308,7 +305,7 @@ class _EmptyHistoryView extends StatelessWidget {
             const Text(
               'There’s no booking history at the moment.',
               style: TextStyle(
-                color: Color(0xFF7A86A1),
+                color: AppColors.textMuted,
                 fontSize: 12,
               ),
               textAlign: TextAlign.center,
@@ -321,7 +318,7 @@ class _EmptyHistoryView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.18),
+                    color: Colors.black.withValues(alpha: 0.25),
                     blurRadius: 6,
                     offset: const Offset(0, 3),
                   ),
@@ -332,8 +329,8 @@ class _EmptyHistoryView extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: HistoryPage.primaryBlue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.primaryEnd,
+                  foregroundColor: AppColors.white,
                   elevation: 0,
                   shadowColor: Colors.transparent,
                   shape: RoundedRectangleBorder(

@@ -4,10 +4,35 @@ import '../../../core/theme/app_colors.dart';
 class SearchSection extends StatelessWidget {
   const SearchSection({super.key});
 
+  String formatDate(DateTime date) {
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  return '${date.day} ${months[date.month - 1]} ${date.year}';
+}
+
   @override
   Widget build(BuildContext context) {
+
+    final today = DateTime.now();
+    final tomorrow = today.add(const Duration(days: 1));
+
+    final checkInDate = formatDate(today);
+    final checkOutDate = formatDate(tomorrow);
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(22),
@@ -34,8 +59,8 @@ class SearchSection extends StatelessWidget {
 
           Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 14,
-              vertical: 14,
+              horizontal: 12,
+              vertical: 12,
             ),
             decoration: BoxDecoration(
               border: Border.all(color:  AppColors.blueSoft),
@@ -48,7 +73,7 @@ class SearchSection extends StatelessWidget {
                   color: AppColors.textMuted,
                   size: 28,
                 ),
-                SizedBox(width: 12),
+                SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +82,7 @@ class SearchSection extends StatelessWidget {
                         'Destination',
                         style: TextStyle(
                           fontSize: 13,
-                          color: Color(0xFF9AA3C7),
+                          color: AppColors.textMuted,
                         ),
                       ),
                       SizedBox(height: 4),
@@ -79,20 +104,20 @@ class SearchSection extends StatelessWidget {
           const SizedBox(height: 14),
 
           Row(
-            children: const [
+            children: [
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.calendar_month_outlined,
+                  icon: Icons.event_available_outlined,
                   title: 'Check-in',
-                  value: '16 Mar 2026',
+                  value: checkInDate,
                 ),
               ),
-              SizedBox(width: 12),
+              SizedBox(width: 10),
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.calendar_month_outlined,
+                  icon: Icons.event_note_outlined,
                   title: 'Check-out',
-                  value: '17 Mar 2026',
+                  value: checkOutDate,
                 ),
               ),
             ],
@@ -104,15 +129,15 @@ class SearchSection extends StatelessWidget {
             children: const [
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.bed_outlined,
+                  icon: Icons.bed_rounded,
                   title: 'Room(s)',
                   value: '1 Room',
                 ),
               ),
-              SizedBox(width: 12),
+              SizedBox(width: 10),
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.person_outline_rounded,
+                  icon: Icons.person_rounded,
                   title: 'Guest(s)',
                   value: '2 Guests',
                 ),
@@ -125,21 +150,43 @@ class SearchSection extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             height: 50,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryEnd,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                gradient: const LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [
+                    AppColors.primaryEnd, // #3F7BEA
+                    AppColors.blueDark,   // #3466C9
+                  ],
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.25),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
-              onPressed: () {},
-              child: const Text(
-                'Search Hotel',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  surfaceTintColor: Colors.transparent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                ),
+                child: const Text(
+                  'Search Hotel',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.white,
+                  ),
                 ),
               ),
             ),
@@ -164,7 +211,7 @@ class _InfoBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.blueSoft),
         borderRadius: BorderRadius.circular(18),
