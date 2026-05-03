@@ -82,7 +82,7 @@ class SearchSection extends StatelessWidget {
             children: const [
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.calendar_month_outlined,
+                  icon: Icons.event_available_outlined,
                   title: 'Check-in',
                   value: '16 Mar 2026',
                 ),
@@ -90,7 +90,7 @@ class SearchSection extends StatelessWidget {
               SizedBox(width: 10),
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.calendar_month_outlined,
+                  icon: Icons.event_note_outlined,
                   title: 'Check-out',
                   value: '17 Mar 2026',
                 ),
@@ -104,7 +104,7 @@ class SearchSection extends StatelessWidget {
             children: const [
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.bed_outlined,
+                  icon: Icons.bed_rounded,
                   title: 'Room(s)',
                   value: '1 Room',
                 ),
@@ -112,7 +112,7 @@ class SearchSection extends StatelessWidget {
               SizedBox(width: 10),
               Expanded(
                 child: _InfoBox(
-                  icon: Icons.person_outline_rounded,
+                  icon: Icons.person_rounded,
                   title: 'Guest(s)',
                   value: '2 Guests',
                 ),

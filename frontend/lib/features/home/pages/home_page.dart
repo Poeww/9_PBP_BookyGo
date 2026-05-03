@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 const SizedBox(
-                  height: 585,
+                  height: 565,
                   width: double.infinity,
                 ),
 
