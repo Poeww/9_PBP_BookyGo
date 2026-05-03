@@ -12,12 +12,13 @@ class AppColors {
   static const blueMedium = Color(0xFF73ADFF);
 
   static const primaryStart = Color(0xFF4E90FF);
-  static const primaryEnd = Color(0xFF3F7BEA);
+  static const primaryEnd = Color(0xFF3F7BEA); // header, button
 
   static const blueDark = Color(0xFF3466C9);
   static const navy = Color(0xFF2A50A3);
   static const darkBlue = Color(0xFF213C7C);
   static const textDark = Color(0xFF162551);
+  static const textGelap = Color(0xFFF172A);
 
   static const mutedBlue = Color(0xFF8C96C6);
   static const textMuted = Color(0xFF9AA3C7);
