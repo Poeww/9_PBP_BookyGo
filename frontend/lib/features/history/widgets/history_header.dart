@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
-class MyBookHeader extends StatelessWidget {
-  final VoidCallback onHistoryTap;
-
-  const MyBookHeader({
-    super.key,
-    required this.onHistoryTap,
-  });
+class HistoryHeader extends StatelessWidget {
+  const HistoryHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,29 +14,33 @@ class MyBookHeader extends StatelessWidget {
           height: 52,
           child: Row(
             children: [
-              const SizedBox(width: 20),
-
+              const SizedBox(width: 4),
+              IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: AppColors.white,
+                  size: 24,
+                ),
+              ),
               const Text(
-                'Your Book',
+                'History',
                 style: TextStyle(
                   color: AppColors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-
               const Spacer(),
-
               IconButton(
-                onPressed: onHistoryTap,
+                onPressed: () {},
                 icon: const Icon(
-                  Icons.pending_actions_rounded,
+                  Icons.more_vert,
                   color: AppColors.white,
-                  size: 26,
+                  size: 24,
                 ),
               ),
-
-              const SizedBox(width: 8),
+              const SizedBox(width: 4),
             ],
           ),
         ),
