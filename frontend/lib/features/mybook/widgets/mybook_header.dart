@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 
 class MyBookHeader extends StatelessWidget {
   final VoidCallback onHistoryTap;
@@ -10,34 +11,39 @@ class MyBookHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF5B74E8);
-
     return Container(
-      width: double.infinity,
-      color: primaryColor,
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+      color: AppColors.primaryEnd,
       child: SafeArea(
         bottom: false,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Your Book',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
+        child: SizedBox(
+          height: 52,
+          child: Row(
+            children: [
+              const SizedBox(width: 20),
+
+              const Text(
+                'Your Book',
+                style: TextStyle(
+                  color: AppColors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
-            ),
-            IconButton(
-              onPressed: onHistoryTap,
-              icon: const Icon(
-                Icons.pending_actions_rounded,
-                color: Colors.white,
-                size: 34,
+
+              const Spacer(),
+
+              IconButton(
+                onPressed: onHistoryTap,
+                icon: const Icon(
+                  Icons.pending_actions_rounded,
+                  color: AppColors.white,
+                  size: 26,
+                ),
               ),
-            ),
-          ],
+
+              const SizedBox(width: 8),
+            ],
+          ),
         ),
       ),
     );

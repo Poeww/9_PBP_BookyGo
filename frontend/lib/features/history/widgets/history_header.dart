@@ -27,7 +27,7 @@ class HistoryHeader extends StatelessWidget {
                 'History',
                 style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.w800,
                 ),
               ),
