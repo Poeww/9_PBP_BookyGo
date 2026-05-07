@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 
 class MyBookActionButton extends StatelessWidget {
   final String text;
@@ -12,16 +13,14 @@ class MyBookActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF5B74E8);
-
     return SizedBox(
       width: 260,
       height: 64,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor,
-          foregroundColor: Colors.white,
+          backgroundColor: AppColors.primaryEnd,
+          foregroundColor: AppColors.white,
           elevation: 6,
           shadowColor: Colors.black.withValues(alpha: 0.14),
           shape: RoundedRectangleBorder(
@@ -31,6 +30,7 @@ class MyBookActionButton extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(
+            color: AppColors.white,
             fontSize: 20,
             fontWeight: FontWeight.w700,
           ),

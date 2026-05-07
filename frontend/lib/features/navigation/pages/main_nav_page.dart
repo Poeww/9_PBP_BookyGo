@@ -97,8 +97,8 @@ class _MainNavPageState extends State<MainNavPage> {
           decoration: BoxDecoration(
             color: AppColors.primaryEnd,
             borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(26),
-              topRight: Radius.circular(26),
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
             ),
             boxShadow: [
               BoxShadow(

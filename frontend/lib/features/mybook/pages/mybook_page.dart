@@ -37,12 +37,12 @@ class MyBookPage extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 120),
               child: Column(
                 children: [
-                  const SizedBox(height: 34),
+                  const SizedBox(height: 40),
 
                   Image.asset(
                     'assets/images/onboarding_bag.png',
-                    width: 170,
-                    height: 170,
+                    width: 150,
+                    height: 150,
                     fit: BoxFit.contain,
                   ),
 
