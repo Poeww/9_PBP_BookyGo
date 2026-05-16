@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('no_telp');
             $table->string('email')->unique();
             $table->string('password');
-            $table->blob('foto')->nullable();           
+            $table->binary('foto')->nullable();
             $table->timestamps();
         });
     }
