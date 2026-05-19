@@ -18,32 +18,32 @@ class MyBookHotelCard extends StatelessWidget {
   Widget build(BuildContext context) {
     const darkBlue = Color(0xFF1F2A44);
     const textGrey = Color(0xFF7B88A8);
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final cardWidth = screenWidth < 380 ? 172.0 : 182.0;
+    final imageHeight = screenWidth < 380 ? 110.0 : 118.0;
 
     return Container(
-      width: 190,
+      width: cardWidth,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-          color: Colors.black.withValues(alpha: 0.08),
-        ),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(18),
+              top: Radius.circular(16),
             ),
             child: Image.network(
               imageUrl,
-              width: 190,
-              height: 120,
+              width: cardWidth,
+              height: imageHeight,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
-                  width: 190,
-                  height: 120,
+                  width: cardWidth,
+                  height: imageHeight,
                   color: const Color(0xFFE9EEFF),
                   alignment: Alignment.center,
                   child: const Icon(
@@ -55,14 +55,16 @@ class MyBookHotelCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
+            padding: const EdgeInsets.fromLTRB(4, 10, 4, 6),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 16,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: screenWidth < 380 ? 14 : 15,
                     fontWeight: FontWeight.w800,
                     color: darkBlue,
                     height: 1.2,
@@ -71,16 +73,18 @@ class MyBookHotelCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   location,
-                  style: const TextStyle(
-                    fontSize: 13,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: screenWidth < 380 ? 12 : 13,
                     color: textGrey,
                   ),
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 4),
                 Text(
                   ratingText,
-                  style: const TextStyle(
-                    fontSize: 13,
+                  style: TextStyle(
+                    fontSize: screenWidth < 380 ? 12 : 13,
                     color: textGrey,
                   ),
                 ),

@@ -13,25 +13,28 @@ class MyBookActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final buttonWidth = (screenWidth * 0.68).clamp(220.0, 290.0);
+
     return SizedBox(
-      width: 260,
-      height: 64,
+      width: buttonWidth,
+      height: 54,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryEnd,
           foregroundColor: AppColors.white,
-          elevation: 6,
-          shadowColor: Colors.black.withValues(alpha: 0.14),
+          elevation: 5,
+          shadowColor: Colors.black.withValues(alpha: 0.16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
         child: Text(
           text,
           style: const TextStyle(
             color: AppColors.white,
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w700,
           ),
         ),

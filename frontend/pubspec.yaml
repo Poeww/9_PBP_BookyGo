@@ -22,6 +22,8 @@ flutter:
     - assets/images/empty_mascot.png
     - assets/images/Google_G_Logo.png
     - assets/images/load_splash.gif
+    - assets/images/no_active_order.png
+    - assets/images/wishlist_empty.png
     
     - assets/images/hotels/bali/abr/
     - assets/images/hotels/bali/lcr/

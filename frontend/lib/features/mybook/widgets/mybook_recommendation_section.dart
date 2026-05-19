@@ -7,11 +7,13 @@ class MyBookRecommendationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const darkBlue = Color(0xFF1F2A44);
+    final width = MediaQuery.sizeOf(context).width;
+    final horizontalPadding = width < 380 ? 14.0 : 20.0;
 
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      padding: const EdgeInsets.fromLTRB(16, 18, 16, 20),
+      margin: EdgeInsets.symmetric(horizontal: width < 380 ? 0 : 4),
+      padding: EdgeInsets.fromLTRB(horizontalPadding, 18, horizontalPadding, 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
@@ -33,15 +35,15 @@ class MyBookRecommendationSection extends StatelessWidget {
           const Text(
             'Your dream vacation waiting you',
             style: TextStyle(
-              fontSize: 17,
+              fontSize: 16,
               fontWeight: FontWeight.w800,
               color: darkBlue,
             ),
           ),
           const SizedBox(height: 14),
-          const SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
+            child: const Row(
               children: [
                 _CityChip(label: 'Jakarta', isSelected: true),
                 SizedBox(width: 8),
@@ -55,24 +57,24 @@ class MyBookRecommendationSection extends StatelessWidget {
           ),
           const SizedBox(height: 18),
           SizedBox(
-            height: 265,
+            height: width < 380 ? 235 : 248,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: const [
                 MyBookHotelCard(
                   imageUrl:
-                      'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop',
-                  title: 'Skyline Central\nHotel',
-                  location: 'Sudirman, Central Jakarta',
+                      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop',
+                  title: 'Pine Valley Lodge',
+                  location: 'Lembang, Bandung',
                   ratingText: '4,5/5 (4 reviews)',
                 ),
                 SizedBox(width: 12),
                 MyBookHotelCard(
                   imageUrl:
-                      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1200&auto=format&fit=crop',
-                  title: 'Metra Grand Hotel',
-                  location: 'Kuningan, South Jakarta',
-                  ratingText: '4,6/5 (4 reviews)',
+                      'https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1200&auto=format&fit=crop',
+                  title: 'Aurora Hills Resort',
+                  location: 'Dago Atas, Bandung',
+                  ratingText: '4,7/5 (4 reviews)',
                 ),
               ],
             ),
@@ -95,7 +97,7 @@ class _CityChip extends StatelessWidget {
     const borderColor = Color(0xFF8A96B8);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(999),
@@ -107,7 +109,7 @@ class _CityChip extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          fontSize: 13,
+          fontSize: 12,
           fontWeight: FontWeight.w700,
           color: isSelected ? primaryColor : const Color(0xFF4D597A),
         ),

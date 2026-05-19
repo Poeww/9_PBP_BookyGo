@@ -11,21 +11,23 @@ class MyBookHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Container(
-      color: AppColors.primaryEnd,
+      color: AppColors.white,
       child: SafeArea(
         bottom: false,
         child: SizedBox(
-          height: 52,
+          height: 56,
           child: Row(
             children: [
-              const SizedBox(width: 20),
+              SizedBox(width: width < 380 ? 16 : 20),
 
               const Text(
                 'Your Book',
                 style: TextStyle(
-                  color: AppColors.white,
-                  fontSize: 18,
+                  color: AppColors.textDark,
+                  fontSize: 17,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -36,12 +38,12 @@ class MyBookHeader extends StatelessWidget {
                 onPressed: onHistoryTap,
                 icon: const Icon(
                   Icons.pending_actions_rounded,
-                  color: AppColors.white,
-                  size: 26,
+                  color: AppColors.primaryEnd,
+                  size: 24,
                 ),
               ),
 
-              const SizedBox(width: 8),
+              SizedBox(width: width < 380 ? 6 : 8),
             ],
           ),
         ),

@@ -15,6 +15,9 @@ class MyBookPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.sizeOf(context);
+    final isCompact = screenSize.width < 380;
+
     return Scaffold(
       backgroundColor: AppColors.bgVeryLight,
       body: Column(
@@ -47,35 +50,35 @@ class MyBookPage extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 120),
               child: Column(
                 children: [
-                  const SizedBox(height: 40),
+                  SizedBox(height: isCompact ? 28 : 34),
 
                   Image.asset(
-                    'assets/images/onboarding_bag.png',
-                    width: 150,
-                    height: 150,
+                    'assets/images/no_active_order.png',
+                    width: isCompact ? 150 : 178,
+                    height: isCompact ? 132 : 156,
                     fit: BoxFit.contain,
                   ),
 
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 20),
 
                   const Text(
                     'No active orders',
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.w800,
                       color: AppColors.textDark,
                     ),
                     textAlign: TextAlign.center,
                   ),
 
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 22),
 
                   MyBookActionButton(
                     text: 'Book now',
                     onPressed: onBookNowTap,
                   ),
 
-                  const SizedBox(height: 56),
+                  SizedBox(height: isCompact ? 44 : 52),
 
                   const MyBookRecommendationSection(),
 

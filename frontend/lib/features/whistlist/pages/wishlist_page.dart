@@ -12,7 +12,7 @@ class WishlistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const backgroundColor = Color(0xFFF4F7FF);
+    const backgroundColor = Color(0xFFF5F8FF);
 
     return Scaffold(
       backgroundColor: backgroundColor,
